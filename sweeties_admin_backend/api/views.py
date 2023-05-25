@@ -6,8 +6,11 @@ from .serializers import (
     CreateCategorySerializer,
     ProductSerializer,
     CreateProductSerializer,
+    ActivitySerializer,
+    CreateActivitySerializer,
 )
-from .models import Category, Product
+from .models import Category, Product, Activity
+from profiles.models import User
 from utils import errors
 
 
@@ -55,4 +58,31 @@ class ProductViewSet(viewsets.ModelViewSet):
         except:
             return Response(
                 {"detail": errors.CATEGORY_NOT_FOUND}, status=status.HTTP_404_NOT_FOUND
+            )
+
+
+class ActivityViewSet(viewsets.ModelViewSet):
+    serializer_class = ActivitySerializer
+    queryset = Activity.objects.all()
+
+    def create(self, request):
+        serializer = CreateActivitySerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            user_id = serializer.data.get("user")
+            user = get_object_or_404(User, id=user_id)
+            activity = Activity(
+                message=serializer.data.get("message"),
+                date=serializer.data.get("date"),
+                user=user,
+            )
+            activity.save()
+            return Response(
+                ActivitySerializer(activity).data, status=status.HTTP_201_CREATED
+            )
+        except:
+            return Response(
+                {"detail": errors.USER_NOT_FOUND}, status=status.HTTP_404_NOT_FOUND
             )

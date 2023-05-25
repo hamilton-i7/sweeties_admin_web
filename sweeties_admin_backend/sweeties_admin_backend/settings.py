@@ -93,7 +93,7 @@ AUTH_USER_MODEL = "profiles.User"
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "America/Panama"
 
 USE_I18N = True
 
