@@ -13,15 +13,18 @@ class Category(UUIDModel, TimestampModel):
 
 class Product(UUIDModel, TimestampModel):
     name = models.CharField(max_length=constants.TEXT_MAX_LENGTH)
-    description = models.CharField(max_length=constants.LONG_TEXT_MAX_LENGTH)
+    description = models.CharField(
+        max_length=constants.LONG_TEXT_MAX_LENGTH, blank=True
+    )
     price = models.DecimalField(
         max_digits=constants.PRICE_MAX_DIGITS,
         decimal_places=constants.PRICE_DECIMAL_PLACES,
+        null=True,
     )
     recommended = models.BooleanField(default=False)
     active = models.BooleanField(default=False)
-    img_path = models.CharField(max_length=constants.TEXT_MAX_LENGTH)
-    img_url = models.CharField(max_length=constants.LONG_TEXT_MAX_LENGTH)
+    img_path = models.CharField(max_length=constants.TEXT_MAX_LENGTH, blank=True)
+    img_url = models.CharField(max_length=constants.LONG_TEXT_MAX_LENGTH, blank=True)
     category = models.ForeignKey(to=Category, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
