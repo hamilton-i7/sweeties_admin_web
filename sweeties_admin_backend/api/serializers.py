@@ -11,7 +11,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class CreateCategorySerializer(serializers.ModelSerializer):
     name = serializers.CharField(
-        max_length=constants.NAME_MAX_LENGTH,
+        max_length=constants.TEXT_MAX_LENGTH,
         error_messages={
             "max_length": errors.MAX_LENGTH_ERROR,
         },
