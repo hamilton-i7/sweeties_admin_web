@@ -13,6 +13,9 @@ class User(AbstractUser, UUIDModel):
 
     username = None
     is_staff = None
+
+    first_name = models.CharField(max_length=constants.TEXT_MAX_LENGTH)
+    last_name = models.CharField(max_length=constants.TEXT_MAX_LENGTH)
     email = models.EmailField(unique=True)
     role = models.CharField(
         max_length=constants.SHORT_TEXT_MAX_LENGTH, choices=Role.choices
