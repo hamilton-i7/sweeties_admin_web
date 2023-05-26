@@ -1,5 +1,6 @@
 import './globals.css'
 import { Barlow, Montserrat } from 'next/font/google'
+import NavBar from '@/components/common/NavBar'
 
 const barlow = Barlow({
   subsets: ['latin'],
@@ -26,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${barlow.className} ${montserrat.variable} bg-background`}
+        className={`${barlow.className} ${montserrat.variable} bg-background text-on-background`}
       >
+        <NavBar title='Home' />
         {children}
       </body>
     </html>
