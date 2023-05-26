@@ -14,8 +14,25 @@ body {
 }
 
 @layer utilities {
+  .headline-l {
+    @apply text-xl font-normal tracking-wide font-display
+  }
+
+  .body-l {
+    @apply text-base font-normal tracking-wider font-body
+  }
+  .body-m {
+    @apply text-sm font-normal tracking-wide font-body
+  }
+  .body-s {
+    @apply text-xs font-normal font-body
+  }
+
   .label-l {
-    @apply text-sm font-medium tracking-wider font-body
+    @apply text-sm font-medium tracking-widest font-body
+  }
+  .label-m {
+    @apply text-xs font-medium tracking-wider font-body
   }
 }
 
