@@ -25,7 +25,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${barlow.className} ${montserrat.variable}`}>
+      <body
+        className={`${barlow.className} ${montserrat.variable} bg-background`}
+      >
         {children}
       </body>
     </html>
