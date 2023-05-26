@@ -107,8 +107,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      display: ['Barlow', 'sans-serif'],
-      body: ['Montserrat', 'sans-serif'],
+      display: ['var(--font-barlow)', 'sans-serif'],
+      body: ['var(--font-montserrat)', 'sans-serif'],
     },
   },
   plugins: [],
