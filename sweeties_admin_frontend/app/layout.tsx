@@ -1,7 +1,17 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Barlow, Montserrat } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const barlow = Barlow({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-barlow',
+})
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-montserrat',
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,8 +24,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en'>
+      <body className={`${barlow.className} ${montserrat.variable}`}>
+        {children}
+      </body>
     </html>
   )
 }
