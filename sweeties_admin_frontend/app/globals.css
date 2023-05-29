@@ -2,44 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
   .headline-l {
-    @apply text-xl font-normal tracking-wide font-display
+    @apply text-xl font-normal tracking-wide font-display;
   }
 
   .title-l {
-    @apply text-lg font-normal font-display
+    @apply text-lg font-normal font-display;
   }
 
   .body-l {
-    @apply text-base font-normal tracking-wider font-body
+    @apply text-base font-normal tracking-wider font-body;
   }
   .body-m {
-    @apply text-sm font-normal tracking-wide font-body
+    @apply text-sm font-normal tracking-wide font-body;
   }
   .body-s {
-    @apply text-xs font-normal font-body
+    @apply text-xs font-normal font-body;
   }
 
   .label-l {
-    @apply text-sm font-medium tracking-widest font-body
+    @apply text-sm font-medium tracking-widest font-body;
   }
   .label-m {
-    @apply text-xs font-medium tracking-wider font-body
+    @apply text-xs font-medium tracking-wider font-body;
   }
-}
-
-.test {
-  background-color: #8d418a14;
+  .label-s {
+    @apply text-[0.625rem] font-normal tracking-widest font-body;
+  }
 }
