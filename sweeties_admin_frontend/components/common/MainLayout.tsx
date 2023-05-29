@@ -5,6 +5,7 @@ import { useMediaQuery } from '@/utils/media-query'
 import NavigationRail from './NavigationRail'
 import SideBarWithNav from './SideBarWithNav'
 import React from 'react'
+import MainToolbar from './navbar/MainToolbar'
 
 type MainLayoutProps = {
   children: React.ReactNode
@@ -15,8 +16,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
   return isMediumScreen ? (
     <>
+      <MainToolbar title='Home' className='md:pl-28' />
       <NavigationRail />
-      <main className='pl-20'>{children}</main>
+      <main className='ml-20'>{children}</main>
     </>
   ) : (
     <>
