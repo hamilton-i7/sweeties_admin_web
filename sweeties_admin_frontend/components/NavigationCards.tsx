@@ -29,7 +29,12 @@ function NavigationCard({ label, imgSrc, alt }: NavigationCardProps) {
   return (
     <article className='flex flex-col items-center gap-y-4 h-[12.5rem] w-[12.5rem] rounded-lg overflow-hidden bg-surface-variant'>
       <div className='grid place-items-center w-full h-[8.25rem] rounded-b-lg bg-primary'>
-        <Image src={imgSrc} alt={alt} className='h-[6.25rem] w-[6.25rem]' />
+        <Image
+          src={imgSrc}
+          alt={alt}
+          className='h-[6.25rem] w-[6.25rem]'
+          priority
+        />
       </div>
       <p className='body-l'>{label}</p>
     </article>
