@@ -4,13 +4,13 @@ import NavigationCards from '@/components/NavigationCards'
 
 export default function Home() {
   return (
-    <main className='flex flex-col pb-12 pt-[5rem] text-on-background'>
+    <div className='flex flex-col pb-12 pt-[5rem] text-on-background'>
       <TextButton
         label='Ver actividad reciente'
         className='self-end mr-4 mb-6'
       />
       <Subscribers />
       <NavigationCards className='mt-8' />
-    </main>
+    </div>
   )
 }

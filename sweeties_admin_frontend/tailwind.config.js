@@ -20,6 +20,10 @@ module.exports = {
       animation: {
         'slide-in': 'slide 250ms ease-in',
       },
+      fontFamily: {
+        display: ['var(--font-barlow)', 'sans-serif'],
+        body: ['var(--font-montserrat)', 'sans-serif'],
+      },
     },
     screens: {
       sm: '640px',
@@ -116,10 +120,6 @@ module.exports = {
       scrim: {
         DEFAULT: '#00000029',
       },
-    },
-    fontFamily: {
-      display: ['var(--font-barlow)', 'sans-serif'],
-      body: ['var(--font-montserrat)', 'sans-serif'],
     },
   },
   plugins: [],

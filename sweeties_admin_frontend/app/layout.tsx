@@ -1,7 +1,7 @@
 import './globals.css'
 import { Barlow, Montserrat } from 'next/font/google'
 import { Metadata } from 'next'
-import SideBarWithNav from '@/components/common/SideBarWithNav'
+import MainLayout from '@/components/common/MainLayout'
 
 const barlow = Barlow({
   subsets: ['latin'],
@@ -26,11 +26,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='es'>
-      <body
-        className={`${barlow.className} ${montserrat.variable} bg-background text-on-background`}>
-        <SideBarWithNav title='Home' />
-        {children}
+    <html lang='es' className={`${barlow.variable} ${montserrat.variable}`}>
+      <body className='bg-background text-on-background'>
+        <MainLayout>{children}</MainLayout>
       </body>
     </html>
   )

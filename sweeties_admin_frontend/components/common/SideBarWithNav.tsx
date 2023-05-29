@@ -7,6 +7,17 @@ import IconButton from './button/IconButton'
 import avatar from '../../public/avatar.svg'
 import * as Dialog from '@radix-ui/react-dialog'
 import * as Separator from '@radix-ui/react-separator'
+import {
+  ALT_SWEETIES_LOGO,
+  BUSINESS_NAME,
+  EMAILS,
+  HOME,
+  LOG_OUT,
+  MAIN_MENU,
+  MENU,
+  OTHER_OPTIONS,
+  USERS,
+} from '@/utils/constants'
 
 type SideBarWithNavProps = {
   title: string
@@ -34,7 +45,7 @@ export default function SideBarWithNav({ title }: SideBarWithNavProps) {
                 <header className='flex items-center gap-x-3 mb-6 px-3'>
                   <Image
                     src={logoSimple}
-                    alt='Logo de Sweeties'
+                    alt={ALT_SWEETIES_LOGO}
                     className='w-8 h-8'
                   />
                   <h3
@@ -44,18 +55,18 @@ export default function SideBarWithNav({ title }: SideBarWithNavProps) {
                     Sweeties672
                   </h3>
                 </header>
-                <menu className='flex-1' aria-label='Menú principal'>
-                  <SideBarItem iconName='home' label='Home' active />
-                  <SideBarItem iconName='restaurant_menu' label='Menú' />
-                  <SideBarItem iconName='mark_email_unread' label='Correos' />
-                  <SideBarItem iconName='group' label='Usuarios' />
+                <menu className='flex-1' aria-label={MAIN_MENU}>
+                  <SideBarItem iconName='home' label={HOME} active />
+                  <SideBarItem iconName='restaurant_menu' label={MENU} />
+                  <SideBarItem iconName='mark_email_unread' label={EMAILS} />
+                  <SideBarItem iconName='group' label={USERS} />
                 </menu>
-                <menu aria-label='Otras opciones'>
-                  <SideBarItem iconName='logout' label='Cerrar sesión' />
+                <menu aria-label={OTHER_OPTIONS}>
+                  <SideBarItem iconName='logout' label={LOG_OUT} />
                 </menu>
                 <Separator.Root className='bg-outline h-[0.0625rem] mt-4 mb-6' />
                 <footer className='grid place-items-center label-s'>
-                  Sweeties672 &copy; 2023
+                  {BUSINESS_NAME} &copy; {year}
                 </footer>
               </aside>
             </Dialog.Content>
@@ -84,10 +95,10 @@ function SideBarItem({ iconName, label, active = false }: SideBarItemProps) {
     ? 'text-on-secondary-container bg-secondary-container hover:bg-[#d0cff3] focus:bg-[#c7c6ec] active:bg-[#c7c6ec]'
     : 'text-on-surface-variant hover:bg-[#1e1a1d14] focus:bg-[#1e1a1d1f] active:bg-[#1e1a1d1f]'
   return (
-    <li className='gap-x-3 w-full h-14'>
+    <li className='w-full h-14'>
       <a
         href='#'
-        className={`h-14 rounded-[6.25rem] pl-4 pr-6 flex items-center gap-x-3 ${itemColors} focus:outline-none`}
+        className={`h-full rounded-[6.25rem] pl-4 pr-6 flex items-center gap-x-3 ${itemColors} focus:outline-none`}
       >
         <span className='material-icons-round'>{iconName}</span>
         <p className='label-l'>{label}</p>
