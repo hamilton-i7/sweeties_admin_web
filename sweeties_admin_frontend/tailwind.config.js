@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
@@ -100,6 +99,10 @@ module.exports = {
       outline: {
         DEFAULT: '#7F747C',
         dark: '#9A8D95',
+      },
+      'outline-variant': {
+        DEFAULT: '#D1C3CB',
+        dark: '#4E444B',
       },
       background: {
         DEFAULT: '#FFFBFF',
