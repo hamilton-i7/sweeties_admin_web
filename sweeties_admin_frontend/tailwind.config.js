@@ -24,6 +24,8 @@ module.exports = {
       primary: {
         DEFAULT: '#8D418A',
         dark: '#FFAAF6',
+        'opacity-0.08': '#8D418A14',
+        'opacity-0.12': '#8D418A1F',
       },
       'on-primary': {
         DEFAULT: '#FFFFFF',
@@ -32,14 +34,20 @@ module.exports = {
       'primary-container': {
         DEFAULT: '#FFD7F7',
         dark: '#722871',
+        'opacity-0.08': '#FFD7F714',
+        'opacity-0.12': '#FFD7F71F',
       },
       'on-primary-container': {
         DEFAULT: '#380039',
         dark: '#FFD7F7',
+        'opacity-0.08': '#38003914',
+        'opacity-0.12': '#3800391F',
       },
       secondary: {
         DEFAULT: '#5156A9',
         dark: '#BFC1FF',
+        'opacity-0.08': '#5156A914',
+        'opacity-0.12': '#5156A91F',
       },
       'on-secondary': {
         DEFAULT: '#FFFFFF',
@@ -48,6 +56,8 @@ module.exports = {
       'secondary-container': {
         DEFAULT: '#E1E0FF',
         dark: '#393D8F',
+        'opacity-0.08': '#E1E0FF14',
+        'opacity-0.12': '#E1E0FF1F',
       },
       'on-secondary-container': {
         DEFAULT: '#070764',
@@ -104,6 +114,9 @@ module.exports = {
       'on-surface-variant': {
         DEFAULT: '#4E444B',
         dark: '#D1C3CB',
+      },
+      scrim: {
+        DEFAULT: '#00000029',
       },
     },
     fontFamily: {
