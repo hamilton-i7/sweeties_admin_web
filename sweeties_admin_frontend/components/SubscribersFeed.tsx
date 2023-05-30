@@ -1,24 +1,29 @@
-'use client'
-
-import React, { useState } from 'react'
 import SubscriberChip from './SubscriberChip'
 import * as Separator from '@radix-ui/react-separator'
 import TextButton from './common/button/TextButton'
 import 'material-icons/iconfont/round.css'
+import Menu from './common/Menu'
+import MenuItem from './common/MenuItem'
+import { forwardRef } from 'react'
 
 export default function SubscribersFeed() {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null)
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget)
-  }
+  const sortButton = (
+    <button className='flex items-center focus:outline-none text-on-tertiary-container font-medium text-[0.875rem ]'>
+      <span>Primeros suscriptores</span>
+      <span className='material-icons-round'>expand_more</span>
+    </button>
+  )
 
   return (
     <section className='w-full py-3 px-4 flex flex-col bg-tertiary-container rounded-lg'>
       <header className='flex justify-between items-baseline text-on-tertiary-container mb-4'>
-        <h2 className='headline-l'>Clientes</h2>
+        <h2 className='headline-l'>Suscriptores</h2>
         <div className='flex items-baseline gap-3 body-m'>
           <span className='text-on-surface-variant'>Ordenar por:</span>
-          <button onClick={handleClick}>Primeros suscritos</button>
+          <Menu anchorEl={sortButton}>
+            <MenuItem text='Primeros suscriptores' />
+            <MenuItem text='Últimos suscriptores' />
+          </Menu>
         </div>
       </header>
       <div className='flex items-baseline gap-3 uppercase body-l text-on-tertiary-container mb-2'>
@@ -71,3 +76,20 @@ function SubscriberFeedItem({
     </li>
   )
 }
+
+type SortButtonProps = {
+  label: string
+}
+
+const SortButton = forwardRef<HTMLButtonElement, SortButtonProps>(
+  ({ label }, ref) => (
+    <button
+      ref={ref}
+      className='flex items-center gap-1 text-on-tertiary-container focus:outline-none'>
+      <span>{label}</span>
+      <span className='material-icons-round'>expand_more</span>
+    </button>
+  ),
+)
+
+SortButton.displayName = 'SortButton'

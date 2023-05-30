@@ -39,8 +39,7 @@ export default function SideBarWithNav({ title }: SideBarWithNavProps) {
             <Dialog.Overlay className='bg-scrim fixed top-0 left-0 w-full h-screen' />
             <Dialog.Content
               asChild
-              className='data-[state=open]:animate-slide-in'
-            >
+              className='data-[state=open]:animate-slide-in'>
               <aside className='w-80 h-screen overflow-y-auto fixed top-0 left-0 rounded-r-[2rem] bg-background py-6 px-4 flex flex-col outline-none'>
                 <header className='flex items-center gap-x-3 mb-6 px-3'>
                   <Image
@@ -50,20 +49,19 @@ export default function SideBarWithNav({ title }: SideBarWithNavProps) {
                   />
                   <h3
                     id='main-navigation-label'
-                    className='body-l text-on-surface-variant'
-                  >
+                    className='body-l text-on-surface-variant'>
                     Sweeties672
                   </h3>
                 </header>
-                <menu className='flex-1' aria-label={MAIN_MENU}>
+                <ul className='flex-1' aria-label={MAIN_MENU}>
                   <SideBarItem iconName='home' label={HOME} active />
                   <SideBarItem iconName='restaurant_menu' label={MENU} />
                   <SideBarItem iconName='mark_email_unread' label={EMAILS} />
                   <SideBarItem iconName='group' label={USERS} />
-                </menu>
-                <menu aria-label={OTHER_OPTIONS}>
+                </ul>
+                <ul aria-label={OTHER_OPTIONS}>
                   <SideBarItem iconName='logout' label={LOG_OUT} />
-                </menu>
+                </ul>
                 <Separator.Root className='bg-outline h-[0.0625rem] mt-4 mb-6' />
                 <footer className='grid place-items-center label-s'>
                   {BUSINESS_NAME} &copy; {year}
@@ -98,8 +96,7 @@ function SideBarItem({ iconName, label, active = false }: SideBarItemProps) {
     <li className='w-full h-14'>
       <a
         href='#'
-        className={`h-full rounded-[6.25rem] pl-4 pr-6 flex items-center gap-x-3 ${itemColors} focus:outline-none`}
-      >
+        className={`h-full rounded-[6.25rem] pl-4 pr-6 flex items-center gap-x-3 ${itemColors} focus:outline-none`}>
         <span className='material-icons-round'>{iconName}</span>
         <p className='label-l'>{label}</p>
       </a>
