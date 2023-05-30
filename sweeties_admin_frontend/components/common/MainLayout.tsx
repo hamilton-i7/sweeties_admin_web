@@ -19,7 +19,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
   return isMediumScreen ? (
     <>
-      <TableLayout />
+      <TabletLayout />
       <main className='ml-20'>{children}</main>
     </>
   ) : (
@@ -30,7 +30,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   )
 }
 
-function TableLayout() {
+function TabletLayout() {
   return (
     <>
       <MainToolbar title='Home' className='md:pl-28' />
