@@ -30,9 +30,9 @@ export default function NavigationRail() {
         <NavigationRailItem iconName='group' label={USERS} />
       </ul>
       <ul aria-label={OTHER_OPTIONS}>
-        <NavigationRailItem iconName='logout' label={LOG_OUT} />
+        <NavigationRailItem iconName='logout' iconDescription='Cerrar sesión' />
       </ul>
-      <Separator.Root className='bg-outline h-[0.0625rem] mt-4 mb-6' />
+      <Separator.Root className='w-full h-[0.0625rem] bg-outline mt-4 mb-6' />
       <footer className='grid place-items-center label-s'>&copy; {year}</footer>
     </aside>
   )
@@ -40,17 +40,19 @@ export default function NavigationRail() {
 
 type NavigationRailItemProps = {
   iconName: string
-  label: string
+  iconDescription?: string
+  label?: string
   active?: boolean
 }
 
 function NavigationRailItem({
   iconName,
+  iconDescription,
   label,
   active = false,
 }: NavigationRailItemProps) {
   return (
-    <li className='w-full h-14'>
+    <li className='w-full h-14 grid place-items-center'>
       <a
         href='#'
         className='group flex flex-col items-center gap-y-1 focus:outline-none'>
@@ -61,6 +63,7 @@ function NavigationRailItem({
               : 'bg-none group-hover:bg-[#1e1a1d14] group-focus:bg-[#1e1a1d1f] group-active:bg-[#1e1a1d1f]'
           }`}>
           <span
+            aria-label={iconDescription}
             className={`material-icons-round ${
               active ? 'text-on-secondary-container' : 'text-on-surface-variant'
             }`}>
@@ -68,12 +71,14 @@ function NavigationRailItem({
           </span>
         </div>
 
-        <p
-          className={`label-m text-center ${
-            active ? 'text-on-background' : 'text-on-surface-variant'
-          }`}>
-          {label}
-        </p>
+        {label && (
+          <p
+            className={`label-m text-center ${
+              active ? 'text-on-background' : 'text-on-surface-variant'
+            }`}>
+            {label}
+          </p>
+        )}
       </a>
     </li>
   )
