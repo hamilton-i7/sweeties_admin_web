@@ -4,7 +4,7 @@ import TextButton from './common/button/TextButton'
 export default function SubscribersList() {
   return (
     <section className='flex flex-col'>
-      <h2 className='headline-l mb-4 ml-4'>Clientes</h2>
+      <h2 className='headline-l mb-4 ml-4'>Suscriptores</h2>
       <ul className='list-none w-full bg-tertiary-container mb-0.5'>
         <SubscriberItem email='name@example.com' active />
         <SubscriberItem email='name@example.com' active />

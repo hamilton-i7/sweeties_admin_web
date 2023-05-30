@@ -1,19 +1,28 @@
 import 'material-icons/iconfont/round.css'
 import 'material-icons/iconfont/round.css'
+import React from 'react'
 
 type NavBarProps = {
-  title: string
+  title: React.ReactNode
+  actions?: React.ReactNode
   className?: string
-  children: React.ReactNode
+  fixed?: boolean
 }
 
-export default function Toolbar({ title, className, children }: NavBarProps) {
+export default function Toolbar({
+  title,
+  actions,
+  className,
+  fixed = false,
+}: NavBarProps) {
   return (
     <header
-      className={`w-full h-16 fixed top-0 left-0 flex items-center ${className}`}
+      className={`w-full h-16 ${
+        fixed ? 'fixed top-0 left-0' : ''
+      } flex items-center ${className}`}
     >
-      <h1 className='title-l flex-1 mr-3'>{title}</h1>
-      <div className='flex gap-x-3 items-center'>{children}</div>
+      {title}
+      {actions && <div className='flex gap-x-3 items-center'>{actions}</div>}
     </header>
   )
 }

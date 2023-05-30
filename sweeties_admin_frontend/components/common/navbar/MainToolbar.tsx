@@ -10,8 +10,11 @@ type MainNavProps = {
 
 export default function MainToolbar({ title, className }: MainNavProps) {
   return (
-    <Toolbar title={title} className={`px-4 md:px-8 md:h-20 ${className}`}>
-      <Image src={avatar} alt={USER_IMAGE} className='w-8 h-8' />
-    </Toolbar>
+    <Toolbar
+      fixed
+      title={<h1 className='title-l flex-1 mr-3'>{title}</h1>}
+      actions={<Image src={avatar} alt={USER_IMAGE} className='w-8 h-8' />}
+      className={`px-4 md:px-8 md:h-20 ${className}`}
+    />
   )
 }

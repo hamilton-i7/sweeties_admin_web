@@ -53,7 +53,7 @@ function MobileLayout({ title }: MobileLayoutProps) {
           </IconButton>
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className='bg-scrim fixed top-0 left-0 w-full h-screen' />
+          <Dialog.Overlay className='scrim' />
           <Dialog.Content asChild>
             <SideBar />
           </Dialog.Content>

@@ -7,9 +7,17 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        slide: {
+        'slide-right': {
           from: {
             transform: 'translateX(-20rem)',
+          },
+          to: {
+            transform: 'translateX(0)',
+          },
+        },
+        'slide-left': {
+          from: {
+            transform: 'translateX(20rem)',
           },
           to: {
             transform: 'translateX(0)',
@@ -33,7 +41,8 @@ module.exports = {
         },
       },
       animation: {
-        'slide-in': 'slide 250ms ease-in',
+        'slide-in-right': 'slide-right 250ms ease-in',
+        'slide-in-left': 'slide-left 250ms ease-in',
         'slide-down-and-fade':
           'slide-down-and-fade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
         'slide-left-and-fade':

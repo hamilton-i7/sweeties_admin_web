@@ -37,3 +37,9 @@
     @apply text-[0.625rem] font-normal tracking-widest font-body;
   }
 }
+
+@layer components {
+  .scrim {
+    @apply bg-scrim fixed top-0 left-0 w-full h-screen;
+  }
+}
