@@ -7,14 +7,11 @@
     @apply text-xl font-normal tracking-wide font-display;
   }
 
-  @media only screen and (min-width: 768px) {
-    .headline-l {
-      @apply text-[2.25rem];
-    }
-  }
-
   .title-l {
     @apply text-lg font-normal font-display;
+  }
+  .title-m {
+    @apply text-[1.0625rem] font-medium font-display;
   }
 
   .body-l {
@@ -35,6 +32,16 @@
   }
   .label-s {
     @apply text-[0.625rem] font-normal tracking-widest font-body;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .display-l {
+      @apply text-[]
+    }
+
+    .headline-l {
+      @apply text-[2.25rem];
+    }
   }
 }
 

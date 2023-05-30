@@ -15,5 +15,6 @@ export const OTHER_OPTIONS = 'Otras opciones'
 // BREAKPOINTS
 export const MD_SCREEN_PX = 768
 export const XL_SCREEN_PX = 1280
+export const XXL_SCREEN_PX = 1536
 
 export const USER_IMAGE = 'Imagen de usuario'

@@ -61,7 +61,36 @@ export default function Feed({ anchorEl }: FeedProps) {
       </Dialog.Portal>
     </Dialog.Root>
   ) : (
-    <></>
+    <aside className='w-[18.75rem] h-[50rem] overflow-y-auto rounded-lg border-[0.0625rem] border-solid border-outline py-6 px-4'>
+      <h3 className='title-m mb-6'>Actividad reciente</h3>
+      <div className='flex flex-col gap-3'>
+        <FeedItem
+          name='Jessica Edwards'
+          message='agregó un producto'
+          date='Hace 2 minutos'
+        />
+        <FeedItem
+          name='Jessica Edwards'
+          message='agregó un producto'
+          date='Hace 4 minutos'
+        />
+        <FeedItem
+          name='Abigail Clarke'
+          message='actualizó un producto'
+          date='Hace 5 horas'
+        />
+        <FeedItem
+          name='Juan Hamilton'
+          message='desactivó un producto'
+          date='Hace 3 días'
+        />
+        <FeedItem
+          name='Juan Hamilton'
+          message='agregó un producto'
+          date='Hace 1 semana'
+        />
+      </div>
+    </aside>
   )
 }
 
