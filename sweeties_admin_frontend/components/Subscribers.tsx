@@ -1,7 +1,7 @@
 'use client'
 
 import { MD_SCREEN_PX } from '@/utils/constants'
-import { useMediaQuery } from '@/utils/media-query'
+import { useMediaQuery } from '@/utils/hooks'
 import SubscribersList from './SubscribersList'
 import SubscribersFeed from './SubscribersFeed'
 

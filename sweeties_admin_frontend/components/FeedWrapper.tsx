@@ -1,7 +1,7 @@
 'use client'
 
 import { XXL_SCREEN_PX } from '@/utils/constants'
-import { useMediaQuery } from '@/utils/media-query'
+import { useMediaQuery } from '@/utils/hooks'
 import React from 'react'
 import TextButton from './common/button/TextButton'
 import Feed from './Feed'

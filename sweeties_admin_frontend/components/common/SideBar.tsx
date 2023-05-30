@@ -15,43 +15,64 @@ import * as Separator from '@radix-ui/react-separator'
 import * as Dialog from '@radix-ui/react-dialog'
 import { forwardRef } from 'react'
 
-const SideBar = forwardRef<
-  HTMLSpanElement,
-  React.ComponentProps<typeof Dialog.Content>
->((props, ref) => {
-  const year = new Date().getFullYear()
+type SideBarProps = React.ComponentProps<typeof Dialog.Content> & {
+  currentPath: string
+}
 
-  return (
-    <aside
-      {...props}
-      ref={ref}
-      className='w-80 h-screen overflow-y-auto fixed top-0 left-0 rounded-r-[2rem] bg-background py-6 px-4 flex flex-col outline-none data-[state=open]:animate-slide-in-right'
-    >
-      <header className='flex items-center gap-x-3 mb-6 px-3'>
-        <Image src={logoSimple} alt={ALT_SWEETIES_LOGO} className='w-8 h-8' />
-        <h3
-          id='main-navigation-label'
-          className='body-l text-on-surface-variant'
-        >
-          Sweeties672
-        </h3>
-      </header>
-      <ul className='flex-1' aria-label={MAIN_MENU}>
-        <SideBarItem iconName='home' label={HOME} active />
-        <SideBarItem iconName='restaurant_menu' label={MENU} />
-        <SideBarItem iconName='mark_email_unread' label={EMAILS} />
-        <SideBarItem iconName='group' label={USERS} />
-      </ul>
-      <ul aria-label={OTHER_OPTIONS}>
-        <SideBarItem iconName='logout' label={LOG_OUT} />
-      </ul>
-      <Separator.Root className='bg-outline h-[0.0625rem] mt-4 mb-6' />
-      <footer className='grid place-items-center label-s'>
-        {BUSINESS_NAME} &copy; {year}
-      </footer>
-    </aside>
-  )
-})
+const SideBar = forwardRef<HTMLSpanElement, SideBarProps>(
+  ({ currentPath, ...props }, ref) => {
+    const year = new Date().getFullYear()
+
+    const isCurrentPath = (path: string) => path === currentPath
+
+    return (
+      <aside
+        {...props}
+        ref={ref}
+        className='w-80 h-screen overflow-y-auto fixed top-0 left-0 rounded-r-[2rem] bg-background py-6 px-4 flex flex-col outline-none data-[state=open]:animate-slide-in-right'
+      >
+        <header className='flex items-center gap-x-3 mb-6 px-3'>
+          <Image src={logoSimple} alt={ALT_SWEETIES_LOGO} className='w-8 h-8' />
+          <h3
+            id='main-navigation-label'
+            className='body-l text-on-surface-variant'
+          >
+            Sweeties672
+          </h3>
+        </header>
+        <ul className='flex-1' aria-label={MAIN_MENU}>
+          <SideBarItem
+            iconName='home'
+            label={HOME}
+            active={isCurrentPath('/')}
+          />
+          <SideBarItem
+            iconName='restaurant_menu'
+            label={MENU}
+            active={isCurrentPath('/menu')}
+          />
+          <SideBarItem
+            iconName='mark_email_unread'
+            label={EMAILS}
+            active={isCurrentPath('/emails')}
+          />
+          <SideBarItem
+            iconName='group'
+            label={USERS}
+            active={isCurrentPath('/users')}
+          />
+        </ul>
+        <ul aria-label={OTHER_OPTIONS}>
+          <SideBarItem iconName='logout' label={LOG_OUT} />
+        </ul>
+        <Separator.Root className='bg-outline h-[0.0625rem] mt-4 mb-6' />
+        <footer className='grid place-items-center label-s'>
+          {BUSINESS_NAME} &copy; {year}
+        </footer>
+      </aside>
+    )
+  }
+)
 
 SideBar.displayName = 'SideBar'
 
