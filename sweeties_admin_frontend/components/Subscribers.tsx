@@ -5,7 +5,15 @@ import { useMediaQuery } from '@/utils/media-query'
 import SubscribersList from './SubscribersList'
 import SubscribersFeed from './SubscribersFeed'
 
-export default function Subscribers() {
+type SubscribersProps = {
+  className?: string
+}
+
+export default function Subscribers({ className }: SubscribersProps) {
   const isMediumScreen = useMediaQuery(MD_SCREEN_PX)
-  return isMediumScreen ? <SubscribersFeed /> : <SubscribersList />
+  return isMediumScreen ? (
+    <SubscribersFeed className={className} />
+  ) : (
+    <SubscribersList className={className} />
+  )
 }

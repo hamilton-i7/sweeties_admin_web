@@ -1,9 +1,13 @@
 import SubscriberChip from './SubscriberChip'
 import TextButton from './common/button/TextButton'
 
-export default function SubscribersList() {
+type SubscribersListProps = {
+  className?: string
+}
+
+export default function SubscribersList({ className }: SubscribersListProps) {
   return (
-    <section className='flex flex-col'>
+    <section className={`flex flex-col ${className}`}>
       <h2 className='headline-l mb-4 ml-4'>Suscriptores</h2>
       <ul className='list-none w-full bg-tertiary-container mb-0.5'>
         <SubscriberItem email='name@example.com' active />

@@ -12,7 +12,7 @@ export default function NavigationCards({
 }: NavigatonCardsProps) {
   return (
     <section
-      className={`flex flex-col md:flex-row items-center gap-4 ${className}`}
+      className={`flex flex-col md:flex-row items-center justify-between gap-4 ${className}`}
     >
       <NavigationCard label='Menú' imgSrc={menu} alt='Menú de restaurante' />
       <NavigationCard label='Correos' imgSrc={email} alt='Carta abierta' />

@@ -15,7 +15,7 @@ export default function Home() {
     <div className='flex flex-col pb-12 pt-[5rem] md:px-8 text-on-background'>
       <Feed anchorEl={viewActivityButton} />
       <Subscribers />
-      <NavigationCards className='mt-8' />
+      <NavigationCards className='mt-8 md:mt-12' />
     </div>
   )
 }
