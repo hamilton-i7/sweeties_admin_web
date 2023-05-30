@@ -18,7 +18,7 @@ export default function Toolbar({
   return (
     <header
       className={`w-full h-16 ${
-        fixed ? 'fixed top-0 left-0' : ''
+        fixed ? 'fixed top-0 right-0' : ''
       } flex items-center ${className}`}
     >
       {title}

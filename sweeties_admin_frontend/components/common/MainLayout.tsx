@@ -1,6 +1,6 @@
 'use client'
 
-import { MD_SCREEN_PX } from '@/utils/constants'
+import { MD_SCREEN_PX, XL_SCREEN_PX } from '@/utils/constants'
 import { useMediaQuery } from '@/utils/media-query'
 import NavigationRail from './NavigationRail'
 import MainToolbar from './navbar/MainToolbar'
@@ -15,9 +15,15 @@ type MainLayoutProps = {
 }
 
 export default function MainLayout({ children }: MainLayoutProps) {
-  const isMediumScreen = useMediaQuery(MD_SCREEN_PX)
+  const isXlScreen = useMediaQuery(XL_SCREEN_PX)
+  const isMdScreen = useMediaQuery(MD_SCREEN_PX)
 
-  return isMediumScreen ? (
+  return isXlScreen ? (
+    <>
+      <DesktopLayout />
+      <main className='ml-[20rem]'>{children}</main>
+    </>
+  ) : isMdScreen ? (
     <>
       <TabletLayout />
       <main className='ml-20'>{children}</main>
@@ -30,10 +36,19 @@ export default function MainLayout({ children }: MainLayoutProps) {
   )
 }
 
+function DesktopLayout() {
+  return (
+    <>
+      <MainToolbar title='Home' className='xl:w-[calc(100%-20rem)]' />
+      <SideBar />
+    </>
+  )
+}
+
 function TabletLayout() {
   return (
     <>
-      <MainToolbar title='Home' className='md:pl-28' />
+      <MainToolbar title='Home' className='md:w-[calc(100%-5rem)]' />
       <NavigationRail />
     </>
   )
