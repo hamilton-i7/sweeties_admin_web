@@ -13,13 +13,14 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     <button
       type='button'
       ref={ref}
-      className={`grid place-items-center h-12 w-12 text-2xl ${className} focus:outline-none`}
-      onClick={onClick}>
-      <span className='grid place-items-center h-10 w-10 rounded-full hover:bg-[#4e444b13] focus:bg-[#4e444b1f] active:bg-[#4e444b1f]'>
+      className={`group grid place-items-center h-12 w-12 text-2xl ${className} focus:outline-none`}
+      onClick={onClick}
+    >
+      <span className='grid place-items-center h-10 w-10 rounded-full group-hover:bg-[#4e444b13] group-focus:bg-[#4e444b1f] group-active:bg-[#4e444b1f]'>
         {children}
       </span>
     </button>
-  ),
+  )
 )
 
 IconButton.displayName = 'IconButton'
