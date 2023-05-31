@@ -1,16 +1,60 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      keyframes: {
+        'slide-right': {
+          from: {
+            transform: 'translateX(-20rem)',
+          },
+          to: {
+            transform: 'translateX(0)',
+          },
+        },
+        'slide-left': {
+          from: {
+            transform: 'translateX(20rem)',
+          },
+          to: {
+            transform: 'translateX(0)',
+          },
+        },
+        'slide-down-and-fade': {
+          from: { opacity: 0, transform: 'translateY(-2px)' },
+          to: { opacity: 1, transform: 'translateY(0)' },
+        },
+        'slide-left-and-fade': {
+          from: { opacity: 0, transform: 'translateX(2px)' },
+          to: { opacity: 1, transform: 'translateX(0)' },
+        },
+        'slide-up-and-fade': {
+          from: { opacity: 0, transform: 'translateY(2px)' },
+          to: { opacity: 1, transform: 'translateY(0)' },
+        },
+        'slide-right-and-fade': {
+          from: { opacity: 0, transform: 'translateX(-2px)' },
+          to: { opacity: 1, transform: 'translateX(0)' },
+        },
+      },
+      animation: {
+        'slide-in-right': 'slide-right 250ms ease-in',
+        'slide-in-left': 'slide-left 250ms ease-in',
+        'slide-down-and-fade':
+          'slide-down-and-fade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'slide-left-and-fade':
+          'slide-left-and-fade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'slide-up-and-fade':
+          'slide-up-and-fade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'slide-right-and-fade':
+          'slide-right-and-fade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+      fontFamily: {
+        display: ['var(--font-barlow)', 'sans-serif'],
+        body: ['var(--font-montserrat)', 'sans-serif'],
       },
     },
     screens: {
@@ -89,6 +133,10 @@ module.exports = {
         DEFAULT: '#7F747C',
         dark: '#9A8D95',
       },
+      'outline-variant': {
+        DEFAULT: '#D1C3CB',
+        dark: '#4E444B',
+      },
       background: {
         DEFAULT: '#FFFBFF',
         dark: '#1E1A1D',
@@ -105,10 +153,9 @@ module.exports = {
         DEFAULT: '#4E444B',
         dark: '#D1C3CB',
       },
-    },
-    fontFamily: {
-      display: ['var(--font-barlow)', 'sans-serif'],
-      body: ['var(--font-montserrat)', 'sans-serif'],
+      scrim: {
+        DEFAULT: '#00000029',
+      },
     },
   },
   plugins: [],

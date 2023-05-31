@@ -2,26 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer utilities {
+  .headline-l {
+    @apply text-xl font-normal tracking-wide font-display;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .title-l {
+    @apply text-lg font-normal font-display;
+  }
+  .title-m {
+    @apply text-[1.0625rem] font-medium font-display;
+  }
+
+  .body-l {
+    @apply text-base font-normal tracking-wider font-body;
+  }
+  .body-m {
+    @apply text-sm font-normal tracking-wide font-body;
+  }
+  .body-s {
+    @apply text-xs font-normal font-body;
+  }
+
+  .label-l {
+    @apply text-sm font-medium tracking-widest font-body;
+  }
+  .label-m {
+    @apply text-xs font-medium tracking-wider font-body;
+  }
+  .label-s {
+    @apply text-[0.625rem] font-normal tracking-widest font-body;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .display-l {
+      @apply text-[]
+    }
+
+    .headline-l {
+      @apply text-[2.25rem];
+    }
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .scrim {
+    @apply bg-scrim fixed top-0 left-0 w-full h-screen;
+  }
 }
