@@ -1,7 +1,7 @@
 'use client'
 
 import { MD_SCREEN_PX, XL_SCREEN_PX } from '@/utils/constants'
-import { useMediaQuery } from '@/utils/hooks'
+import { useMediaQuery, useScrollPastLimit } from '@/utils/hooks'
 import NavigationRail from './NavigationRail'
 import MainToolbar from './navbar/MainToolbar'
 import * as Dialog from '@radix-ui/react-dialog'
@@ -65,8 +65,13 @@ type MobileLayoutProps = LayoutProps & {
 }
 
 function MobileLayout({ title, pathname }: MobileLayoutProps) {
+  const scrolledPastLimit = useScrollPastLimit(100)
+
   return (
-    <nav className='flex items-center h-16 w-full pr-4 pl-1 fixed top-0 left-0'>
+    <nav
+      className={`flex items-center h-16 w-full pr-4 pl-1 fixed top-0 left-0 ${
+        scrolledPastLimit ? 'bg-[#f9f2f9]' : 'bg-background'
+      } transition-colors`}>
       <Dialog.Root>
         <Dialog.Trigger asChild>
           <IconButton className='mr-4'>
