@@ -14,6 +14,7 @@ import {
 import * as Separator from '@radix-ui/react-separator'
 import * as Dialog from '@radix-ui/react-dialog'
 import { forwardRef } from 'react'
+import Link from 'next/link'
 
 type SideBarProps = React.ComponentProps<typeof Dialog.Content> & {
   currentPath: string
@@ -44,21 +45,25 @@ const SideBar = forwardRef<HTMLSpanElement, SideBarProps>(
           <SideBarItem
             iconName='home'
             label={HOME}
+            linkTo='/'
             active={isCurrentPath('/')}
           />
           <SideBarItem
             iconName='restaurant_menu'
             label={MENU}
+            linkTo='/menu'
             active={isCurrentPath('/menu')}
           />
           <SideBarItem
             iconName='mark_email_unread'
             label={EMAILS}
+            linkTo='/emails'
             active={isCurrentPath('/emails')}
           />
           <SideBarItem
             iconName='group'
             label={USERS}
+            linkTo='/users'
             active={isCurrentPath('/users')}
           />
         </ul>
@@ -82,21 +87,34 @@ type SideBarItemProps = {
   iconName: string
   label: string
   active?: boolean
+  linkTo?: string
 }
 
-function SideBarItem({ iconName, label, active = false }: SideBarItemProps) {
+function SideBarItem({
+  iconName,
+  label,
+  linkTo,
+  active = false,
+}: SideBarItemProps) {
   const itemColors = active
     ? 'text-on-secondary-container bg-secondary-container hover:bg-[#d0cff3] focus:bg-[#c7c6ec] active:bg-[#c7c6ec]'
     : 'text-on-surface-variant hover:bg-[#1e1a1d14] focus:bg-[#1e1a1d1f] active:bg-[#1e1a1d1f]'
+  const containerClassName = `w-full h-full rounded-[6.25rem] pl-4 pr-6 flex items-center gap-x-3 ${itemColors} focus:outline-none`
+  const itemContent = (
+    <>
+      <span className='material-icons-round'>{iconName}</span>
+      <p className='label-l'>{label}</p>
+    </>
+  )
   return (
     <li className='w-full h-14'>
-      <a
-        href='#'
-        className={`h-full rounded-[6.25rem] pl-4 pr-6 flex items-center gap-x-3 ${itemColors} focus:outline-none`}
-      >
-        <span className='material-icons-round'>{iconName}</span>
-        <p className='label-l'>{label}</p>
-      </a>
+      {linkTo ? (
+        <Link href={linkTo} className={containerClassName}>
+          {itemContent}
+        </Link>
+      ) : (
+        <button className={containerClassName}>{itemContent}</button>
+      )}
     </li>
   )
 }
