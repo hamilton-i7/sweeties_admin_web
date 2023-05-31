@@ -11,11 +11,11 @@ export default function Catalog({ products }: CatalogProps) {
   return (
     <ul className='w-full'>
       {Array.from(products.keys()).map(category => (
-        <li>
+        <li key={category.id}>
           <Category name={category.name} />
           <ul>
             {products.get(category)?.map(product => (
-              <li>
+              <li key={product.id}>
                 <Product name={product.name} />
               </li>
             )) ?? []}
