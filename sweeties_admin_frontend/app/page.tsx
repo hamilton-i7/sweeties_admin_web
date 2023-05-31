@@ -1,6 +1,11 @@
 import FeedWrapper from '@/components/FeedWrapper'
 import NavigationCards from '@/components/NavigationCards'
 import Subscribers from '@/components/Subscribers'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Home',
+}
 
 export default function Home() {
   return (

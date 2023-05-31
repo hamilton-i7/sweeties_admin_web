@@ -18,3 +18,5 @@ export const XL_SCREEN_PX = 1280
 export const XXL_SCREEN_PX = 1536
 
 export const USER_IMAGE = 'Imagen de usuario'
+
+export const TRANSPARENT_TOOLBAR_LIMIT = 100

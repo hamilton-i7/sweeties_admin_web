@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Toolbar from './Toolbar'
 import avatar from '@/public/avatar.svg'
-import { USER_IMAGE } from '@/utils/constants'
+import { TRANSPARENT_TOOLBAR_LIMIT, USER_IMAGE } from '@/utils/constants'
 import { useScrollPastLimit } from '../../../utils/hooks'
 
 type MainNavProps = {
@@ -12,7 +12,7 @@ type MainNavProps = {
 }
 
 export default function MainToolbar({ title, className }: MainNavProps) {
-  const scrolledPastLimit = useScrollPastLimit(100)
+  const scrolledPastLimit = useScrollPastLimit(TRANSPARENT_TOOLBAR_LIMIT)
 
   return (
     <Toolbar
