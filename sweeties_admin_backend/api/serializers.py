@@ -13,10 +13,10 @@ class TimestampSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class CategorySerializer(serializers.ModelSerializer):
+class CategorySerializer(TimestampSerializer):
     class Meta:
         model = Category
-        fields = "__all__"
+        exclude = ("created_at", "last_modified")
 
 
 class CreateCategorySerializer(serializers.ModelSerializer):
@@ -100,4 +100,4 @@ class CreateActivitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Activity
-        fields = '__all__'
+        fields = "__all__"
