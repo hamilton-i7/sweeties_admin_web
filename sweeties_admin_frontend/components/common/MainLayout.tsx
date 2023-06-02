@@ -1,7 +1,11 @@
 'use client'
 
-import { MD_SCREEN_PX, XL_SCREEN_PX } from '@/utils/constants'
-import { useMediaQuery } from '@/utils/hooks'
+import {
+  MD_SCREEN_PX,
+  TRANSPARENT_TOOLBAR_LIMIT,
+  XL_SCREEN_PX,
+} from '@/utils/constants'
+import { useMediaQuery, useScrollPastLimit } from '@/utils/hooks'
 import NavigationRail from './NavigationRail'
 import MainToolbar from './navbar/MainToolbar'
 import * as Dialog from '@radix-ui/react-dialog'
@@ -19,20 +23,36 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const isXlScreen = useMediaQuery(XL_SCREEN_PX)
   const isMdScreen = useMediaQuery(MD_SCREEN_PX)
   const pathname = usePathname()
+  let title = 'Home'
+
+  switch (pathname) {
+    case '/':
+      title = 'Home'
+      break
+    case '/menu':
+      title = 'Menú'
+      break
+    case '/emails':
+      title = 'Correos'
+      break
+    case '/users':
+      title = 'Usuarios'
+      break
+  }
 
   return isXlScreen ? (
     <>
-      <DesktopLayout pathname={pathname} />
+      <DesktopLayout pathname={pathname} title={title} />
       <main className='ml-[20rem]'>{children}</main>
     </>
   ) : isMdScreen ? (
     <>
-      <TabletLayout pathname={pathname} />
+      <TabletLayout pathname={pathname} title={title} />
       <main className='ml-20'>{children}</main>
     </>
   ) : (
     <>
-      <MobileLayout title='Home' pathname={pathname} />
+      <MobileLayout title={title} pathname={pathname} />
       <main>{children}</main>
     </>
   )
@@ -40,33 +60,36 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
 type LayoutProps = {
   pathname: string
+  title: string
 }
 
-function DesktopLayout({ pathname }: LayoutProps) {
+function DesktopLayout({ pathname, title }: LayoutProps) {
   return (
     <>
-      <MainToolbar title='Home' className='xl:w-[calc(100%-20rem)]' />
+      <MainToolbar title={title} className='xl:w-[calc(100%-20rem)]' />
       <SideBar currentPath={pathname} />
     </>
   )
 }
 
-function TabletLayout({ pathname }: LayoutProps) {
+function TabletLayout({ pathname, title }: LayoutProps) {
   return (
     <>
-      <MainToolbar title='Home' className='md:w-[calc(100%-5rem)]' />
+      <MainToolbar title={title} className='md:w-[calc(100%-5rem)]' />
       <NavigationRail currentPath={pathname} />
     </>
   )
 }
 
-type MobileLayoutProps = LayoutProps & {
-  title: string
-}
+function MobileLayout({ title, pathname }: LayoutProps) {
+  const scrolledPastLimit = useScrollPastLimit(TRANSPARENT_TOOLBAR_LIMIT)
 
-function MobileLayout({ title, pathname }: MobileLayoutProps) {
   return (
-    <nav className='flex items-center h-16 w-full pr-4 pl-1 fixed top-0 left-0'>
+    <nav
+      className={`flex items-center h-16 w-full pr-4 pl-1 fixed top-0 left-0 ${
+        scrolledPastLimit ? 'bg-[#f9f2f9]' : 'bg-background'
+      } transition-colors`}
+    >
       <Dialog.Root>
         <Dialog.Trigger asChild>
           <IconButton className='mr-4'>
