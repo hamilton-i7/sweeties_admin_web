@@ -1,9 +1,12 @@
 'use client'
 
 import * as RadixSwitch from '@radix-ui/react-switch'
-import { ButtonHTMLAttributes } from 'react'
+import React, { ButtonHTMLAttributes } from 'react'
 
-export default function Switch(props: ButtonHTMLAttributes<HTMLButtonElement>) {
+type SwitchProps = React.ComponentProps<typeof RadixSwitch.Root> &
+  ButtonHTMLAttributes<HTMLButtonElement>
+
+export default function Switch(props: SwitchProps) {
   return (
     <RadixSwitch.Root
       {...props}

@@ -12,11 +12,15 @@ export default function Catalog({ products }: CatalogProps) {
     <ul className='w-full'>
       {Array.from(products.keys()).map(category => (
         <li key={category.id}>
-          <Category name={category.name} />
+          <Category name={category.name} active={category.active} />
           <ul>
             {products.get(category)?.map(product => (
               <li key={product.id}>
-                <Product name={product.name} />
+                <Product
+                  name={product.name}
+                  imgUrl={product.imgUrl}
+                  active={product.active}
+                />
               </li>
             )) ?? []}
           </ul>

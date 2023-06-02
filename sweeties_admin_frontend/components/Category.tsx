@@ -14,7 +14,7 @@ export default function Category({ name, active = false }: CategoryProps) {
         <span className='material-icons-round'>drag_indicator</span>
       </IconButton>
       <span className='title-l flex-1'>{name}</span>
-      <Switch aria-label={active ? 'Desactivar' : 'Activar'} />
+      <Switch checked={active} aria-label={active ? 'Desactivar' : 'Activar'} />
     </div>
   )
 }

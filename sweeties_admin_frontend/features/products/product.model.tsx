@@ -4,7 +4,7 @@ export interface IProduct extends ITimestamp {
   id: string
   name: string
   description?: string
-  price: number
+  price: string
   recommended: boolean
   active: boolean
   imgPath?: string

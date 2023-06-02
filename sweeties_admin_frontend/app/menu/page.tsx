@@ -44,11 +44,15 @@ export default async function MenuPage() {
 }
 
 async function getCategories(): Promise<ICategory[]> {
-  const res = await fetch(`${process.env.BASE_URL}/categories`)
+  const res = await fetch(`${process.env.BASE_URL}/categories`, {
+    cache: 'no-store',
+  })
   return res.json()
 }
 
 async function getProducts(): Promise<IProduct[]> {
-  const res = await fetch(`${process.env.BASE_URL}/products`)
+  const res = await fetch(`${process.env.BASE_URL}/products`, {
+    cache: 'no-store',
+  })
   return res.json()
 }
