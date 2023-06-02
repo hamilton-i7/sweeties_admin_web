@@ -7,9 +7,14 @@ import { imageLoader } from '@/utils/image'
 type ProductProps = {
   name: string
   imgUrl?: string
+  active?: boolean
 }
 
-export default function Product({ name, imgUrl }: ProductProps) {
+export default function Product({
+  name,
+  imgUrl,
+  active = false,
+}: ProductProps) {
   return (
     <div className='w-full h-16 flex items-center gap-1 pl-12 pr-4 bg-[#f9f2f9]'>
       <IconButton>
@@ -28,7 +33,7 @@ export default function Product({ name, imgUrl }: ProductProps) {
       )}
 
       <span className='body-l flex-1'>{name}</span>
-      <Switch />
+      <Switch aria-label={active ? 'Desactivar' : 'Activar'} />
     </div>
   )
 }
