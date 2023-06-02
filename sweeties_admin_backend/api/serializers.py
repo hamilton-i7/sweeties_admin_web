@@ -33,9 +33,16 @@ class CreateCategorySerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(TimestampSerializer):
+    imgPath = serializers.CharField(
+        max_length=constants.TEXT_MAX_LENGTH, required=False, source="img_path"
+    )
+    imgUrl = serializers.CharField(
+        max_length=constants.LONG_TEXT_MAX_LENGTH, required=False, source="img_url"
+    )
+
     class Meta:
         model = Product
-        exclude = ("created_at", "last_modified")
+        exclude = ("created_at", "last_modified", "img_path", "img_url")
 
 
 class CreateProductSerializer(serializers.ModelSerializer):
