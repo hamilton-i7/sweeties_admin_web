@@ -21,13 +21,10 @@ export default async function MenuPage() {
 
   products.forEach(product => {
     const category = categories.find(
-      category => category.id === product.categoryId
+      category => category.id === product.category
     )!
     menuMap.set(category, [...(menuMap.get(category) ?? []), product])
   })
-
-  console.log(categories)
-  console.log(menuMap)
 
   return (
     <div className='pt-[5rem] flex flex-col'>

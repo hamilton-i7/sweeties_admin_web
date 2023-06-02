@@ -9,5 +9,5 @@ export interface IProduct extends ITimestamp {
   active: boolean
   imgPath?: string
   imgUrl?: string
-  categoryId: string
+  category: string
 }
