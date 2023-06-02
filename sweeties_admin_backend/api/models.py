@@ -2,6 +2,7 @@ from django.db import models
 from utils.abstract_models import UUIDModel, TimestampModel
 from utils import constants
 from json import dumps
+from profiles.models import User
 
 
 class Category(UUIDModel, TimestampModel):
@@ -38,5 +39,20 @@ class Product(UUIDModel, TimestampModel):
                 "img_path": self.img_path,
                 "img_url": self.img_url,
                 "category": self.category.id,
+            }
+        )
+
+
+class Activity(UUIDModel):
+    message = models.CharField(max_length=constants.TEXT_MAX_LENGTH)
+    date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self) -> str:
+        return dumps(
+            {
+                "message": self.message,
+                "date": self.date,
+                "user": self.user.id,
             }
         )
